@@ -16,7 +16,7 @@ export default function Home() {
       <div>
       <HomeComponent/>
       </div>
-     <div className="flex-1 lg:mt-[20%] mt-[25%] md:mt-[15%]">
+     <div className="flex-1  md:mt-10">
      <Featureblog/>
      </div>
      <div>
@@ -29,7 +29,7 @@ export default function Home() {
      <div>
       <Fashion/>
      </div>
-     <div className=" flex-1 lg:mt-[0%] mt-2">
+     <div className=" ">
       <Latest/>
      </div>
      <div>

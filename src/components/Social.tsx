@@ -9,8 +9,8 @@ import Image from 'next/image';
 
 const Social = () => {
   return (
-    <div className='w-full mt-20'>
-      <h1 className='lg:text-5xl mb-10 md:text-4xl text-3xl font-bold text-center'>
+    <div className='w-full mt-6'>
+      <h1 className='lg:text-4xl mb-10 md:text-3xl text-lg font-bold text-center'>
         Follow Me On Instagram
       </h1>
       <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-2'>

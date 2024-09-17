@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Collaborate = () => {
   return (
-    <div className='w-[100%] h-[70vh] relative mt-20'>
+    <div className='w-[100%] h-[70vh] relative mt-1'>
       <div className='absolute inset-0'>
         <Image 
           alt='' 

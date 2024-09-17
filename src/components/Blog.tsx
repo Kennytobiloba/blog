@@ -22,7 +22,7 @@ const Blog: React.FC<BlogProps> = ({ Featurepost }) => {
   };
 
   return (
-    <div className="mb-6  ">
+    <div className="mb-6  cursor-pointer " onClick={handleClick} >
       <Image
         src={Featurepost.img}
         alt={Featurepost.topic}
@@ -33,7 +33,7 @@ const Blog: React.FC<BlogProps> = ({ Featurepost }) => {
       <h2 className="lg:text-2xl md:text-[18px] text-[16px] font-bold">{Featurepost.topic}</h2>
       <p className="text-gray-600">{Featurepost.des}</p>
       <div className='flex gap-4'>
-        <button onClick={handleClick} className="text-red-600 flex items-center">
+        <button className="text-red-600 flex items-center">
           <span className='cursor-pointer'>Readmore</span>
           <span className="ml-2 text-sm text-red-500 cursor-pointer">
             <FaArrowRight />

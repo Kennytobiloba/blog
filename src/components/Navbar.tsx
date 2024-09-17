@@ -19,32 +19,35 @@ const Navbar: React.FC = () => {
       <div className='flex justify-between w-[90%] mx-auto h-full items-center'>
         <div>
           <h4 className='font-extrabold text-lg'>MCKENZIE</h4>
-          <h4 className='text-sm'>Fashion Blog</h4>
+          <h4 className='text-lg'>Fashion Blog</h4>
         </div>
 
-        <div className='hidden md:flex gap-4 items-center'>
-          <Link href="/" className='hover:text-red-100 cursor-pointer'>
+        <div className=' md:flex gap-4  hidden text-[16px] items-center justify-center'>
+          <Link href="/" className='hover:text-red-100 text-[16px] mr-2 cursor-pointer'>
             Home
           </Link>
-          <Link href="/about" className='hover:text-red-100 cursor-pointer'>
+          <Link href="/about" className='hover:text-red-100 text-[14px] cursor-pointer'>
             About
           </Link>
-          <Link href="/blog" className='hover:text-red-100 cursor-pointer'>
+          <Link href="/blog" className='hover:text-red-100 text-[16px]  cursor-pointer'>
             Blog
           </Link>
-          <Link href="/contact" className='hover:text-red-100 cursor-pointer'>
+          <Link href="/contact" className='hover:text-red-100 text-[16px]  cursor-pointer'>
             Contact
           </Link>
-          <Link href="/login" className='hover:text-red-100 cursor-pointer'>
+          <Link href="/login" className='hover:text-red-100 text-[16px]  cursor-pointer'>
             Login
           </Link>
+          <Link href="/Register" className='hover:text-red-100 text-[16px]  cursor-pointer'>
+            Register
+          </Link>
 
-          <button className='px-4 py-2 bg-red-900 text-white'>
+          <button className='px-4 py-2 text-[16px]  rounded-md bg-red-900 text-white'>
             Contact Me
           </button>
         </div>
 
-        <div className='md:hidden'>
+        <div className='md:hidden  block'>
           {!toggle ? (
             <FiMenu className='text-3xl cursor-pointer' onClick={handleToggle} />
           ) : (
@@ -69,6 +72,9 @@ const Navbar: React.FC = () => {
           </Link>
           <Link href="/login" className='hover:text-red-100 cursor-pointer' onClick={handleToggle}>
             Login
+          </Link>
+          <Link href="/Register" className='hover:text-red-100 cursor-pointer' onClick={handleToggle}>
+            Register
           </Link>
           <button className='px-4 py-2 text-center bg-red-900 text-white'>
             Contact Me

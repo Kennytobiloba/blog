@@ -15,17 +15,17 @@ const Page: React.FC = () => {
   // Find the blog post with the matching blogid
   const blogPost = AllBlog.find(post => post.id.toString() === blogid);
 
-  if (!blogPost) {
-    return <div>Blog post not found.</div>;
-  }
-
   // State for mobile menu toggle
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Toggle mobile menu
   const handleToggleMenu = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
+    setMobileMenuOpen(prevState => !prevState);
   };
+
+  if (!blogPost) {
+    return <div>Blog post not found.</div>;
+  }
 
   return (
     <div className='w-full bg-white text-black overflow-hidden min:h-[70vh]'>
@@ -57,7 +57,7 @@ const Page: React.FC = () => {
         </div>
         {/* Mobile menu */}
         {isMobileMenuOpen && (
-          <div className='lg:hidden flex flex-col bg-white text-black items-start p-4'>
+          <div className='lg:hidden flex flex-col bg-red-950 text-white items-center p-4'>
             <h3 className='hover:text-red-100 cursor-pointer py-2'>Home</h3>
             <h3 className='hover:text-red-100 cursor-pointer py-2'>About</h3>
             <h3 className='hover:text-red-100 cursor-pointer py-2'>Blog</h3>
