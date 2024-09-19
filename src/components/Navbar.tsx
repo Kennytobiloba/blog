@@ -26,14 +26,14 @@ const Navbar: React.FC = () => {
           <Link href="/" className='hover:text-red-100 text-[16px] mr-2 cursor-pointer'>
             Home
           </Link>
-          <Link href="/about" className='hover:text-red-100 text-[14px] cursor-pointer'>
-            About
+          <Link href="/profile" className='hover:text-red-100 text-[14px] cursor-pointer'>
+            Profile
           </Link>
-          <Link href="/blog" className='hover:text-red-100 text-[16px]  cursor-pointer'>
+          <Link href="/blogs" className='hover:text-red-100 text-[16px]  cursor-pointer'>
             Blog
           </Link>
-          <Link href="/contact" className='hover:text-red-100 text-[16px]  cursor-pointer'>
-            Contact
+          <Link href="/createblog" className='hover:text-red-100 text-[16px]  cursor-pointer'>
+            Createblog
           </Link>
           <Link href="/login" className='hover:text-red-100 text-[16px]  cursor-pointer'>
             Login
@@ -61,14 +61,14 @@ const Navbar: React.FC = () => {
           <Link href="/" className='hover:text-red-100 cursor-pointer' onClick={handleToggle}>
             Home
           </Link>
-          <Link href="/about" className='hover:text-red-100 cursor-pointer' onClick={handleToggle}>
-            About
+          <Link href="/profile" className='hover:text-red-100 cursor-pointer' onClick={handleToggle}>
+          Profile
           </Link>
-          <Link href="/blog" className='hover:text-red-100 cursor-pointer' onClick={handleToggle}>
+          <Link href="/blogs" className='hover:text-red-100 cursor-pointer' onClick={handleToggle}>
             Blog
           </Link>
-          <Link href="/contact" className='hover:text-red-100 cursor-pointer' onClick={handleToggle}>
-            Contact
+          <Link href="/createblog" className='hover:text-red-100 cursor-pointer' onClick={handleToggle}>
+            CreateBlog
           </Link>
           <Link href="/login" className='hover:text-red-100 cursor-pointer' onClick={handleToggle}>
             Login
