@@ -1,22 +1,93 @@
-import React from 'react'
+"use client"
 
-const page = () => {
+import React, { useState } from 'react'
+import {Toaster,toast} from 'react-hot-toast'
+
+ type formPros = {
+  email: string,
+  password:string
+ }
+ 
+
+const Page = () => {
+    const [formData, setFormData] = useState<formPros>({
+     email:"",
+     password:""
+    })
+     
+    
+
+    const handleChange = (e:any) => {
+      const {name, value} =  e.target
+      setFormData((prev:any) => {
+      return{
+        ...prev,
+        [name]:value
+      }
+      })
+
+     }
+
+
+
+  const handleSubmit = async(e:any) => {
+      e.preventDefault()
+      
+        const {email,password} = formData
+       
+      if(!email || !password){
+          toast.error("Please fill all fields")
+          
+      }else{
+        const res = await fetch("/api/login", {
+          method:"POST",
+          headers:{ 
+            "Content-Type": "application/json"
+          },
+            body:JSON.stringify({email, password})
+
+          })
+          const data =  await res.json()
+          if(res.ok){
+            toast.success("Registration Successfull")
+              console.log(data)
+          }else{
+            toast.error(data.error)
+          }
+            
+      }
+        
+        
+  }
+  
   return (
     <div>
+       <Toaster position="top-right"  />
 <div className="container px-4 mx-auto mt-20">
   <div className="max-w-lg mx-auto">
     <div className="text-center mb-6">
       <h2 className="text-3xl md:text-4xl font-extrabold">Sign in</h2>
     </div>
-    <form action="">
+    <form action="" onSubmit={handleSubmit} >
       <div className="mb-6">
         <label className="block mb-2 font-extrabold" >Email</label>
-        <input className="inline-block w-full p-4 leading-6 text-lg font-extrabold placeholder-indigo-900 bg-white shadow border-2 border-indigo-900 rounded" type="email" placeholder="email"/>
+        <input 
+        onChange={handleChange}
+        value={formData?.email} 
+        name='email'
+         className="inline-block w-full p-4 leading-6 text-lg font-extrabold placeholder-indigo-900 bg-white shadow border-2 border-indigo-900 rounded" type="email" placeholder="email"/>
       </div>
-      <div className="mb-6">
-        <label className="block mb-2 font-extrabold" >Password</label>
-        <input className="inline-block w-full p-4 leading-6 text-lg font-extrabold placeholder-indigo-900 bg-white shadow border-2 border-indigo-900 rounded" type="password" placeholder="**********"/>
-      </div>
+    <div className="mb-6">
+      <label
+      
+      
+        className="block mb-2 font-extrabold" >Password</label>
+      <input 
+      onChange={handleChange}
+        value={formData?.password}
+        name='password'
+      className="inline-block w-full p-4 leading-6 text-lg font-extrabold placeholder-indigo-900 bg-white shadow border-2 border-indigo-900 rounded" type="password" placeholder="**********"/>
+    </div>
       <div className="flex flex-wrap -mx-4 mb-6 items-center justify-between">
         <div className="w-full lg:w-auto px-4 mb-4 lg:mb-0">
           <label >
@@ -39,4 +110,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

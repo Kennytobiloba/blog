@@ -1,8 +1,11 @@
 "use client"
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
+import { TbArrowAutofitDown } from 'react-icons/tb';
 
 const Page = () => {
+   const route = useRouter()
   const [formValue, setFormValue] = useState({
     name: "",
     email: "",
@@ -20,9 +23,11 @@ const Page = () => {
     }));
   };
 
-  const handleSubmit = (e: any) => {
+  const  handleSubmit =  async(e:any) => {
     e.preventDefault();
     
+    console.log( name, email, password)
+
     // Basic validation logic
     if (!name || !email || !password || !confirmPassword) {
       toast.error("Please fill all fields");
@@ -35,7 +40,7 @@ const Page = () => {
     }
 
     // If validation passes, show success toast
-    toast.success("Form submitted successfully!");
+    // toast.success("Form submitted successfully!");
 
     // Clear form fields
     setFormValue({
@@ -44,6 +49,20 @@ const Page = () => {
       password: "",
       confirmPassword: "",
     });
+     const res = await fetch("api/register",{
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({name, email, password,})
+     })
+      const data = await res.json()
+       if(res.ok){
+        toast.success(data.message)
+        route.push('/login')
+       }else{
+        toast.error(data.error)
+       }
   };
 
   return (
